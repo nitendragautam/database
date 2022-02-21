@@ -1,3 +1,17 @@
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------
+-- execute the following statements to create a user name OT if not exists 
+--and grant priviledges
+--------------------------------------------------------------------
+
+-- create new user
+CREATE USER OT IDENTIFIED BY admin123;
+-- grant priviledges
+GRANT CONNECT, RESOURCE, DBA TO OT;
+GRANT CREATE SESSION TO OT;
+GRANT UNLIMITED TABLESPACE TO OT;
+COMMIT;
+
 CREATE TABLE "OT"."CUSTOMERS_DATA" 
    (	"CUSTOMER_ID" NUMBER  NOT NULL , 
 	"NAME" VARCHAR2(255) NOT NULL , 
