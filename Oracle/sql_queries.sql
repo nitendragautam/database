@@ -17,12 +17,10 @@ SELECT 'Hello World!' FROM dual;
 /*=================================================================*/
 
 
-
 /*
  * Describe All Objects in the Database
  */
 SELECT * FROM dba_objects;
-
 
 
 /*
@@ -49,11 +47,68 @@ CDB_LOBS	Description of LOBs contained in all tables in all containers
 
 
 /*
- * Using SQL SELECT to select all the columns from the table
+ * 
+ * Using SELECT to query all the columns from the table
  * 
  */
 
-SELECT * FROM OT.CUSTOMERS ;
+SELECT * FROM  OT.CUSTOMERS_DATA ;
 
+
+/*
+ * Using SELECT to query specific columns from the table
+ */
+
+SELECT CUS_ID, NAME, CRDT_LMT FROM OT.CUSTOMERS_DATA;
+
+
+/**
+ * Perform  Transformation on Columns while Selecting the data without Alias
+ */
+
+SELECT CUS_ID, UPPER(NAME) AS NAME FROM OT.CUSTOMERS_DATA;
+
+/**
+ * Perform  Transformation on Columns while Selecting the data With Alias
+ */
+
+SELECT ORDER_ID, UPPER(STATUS) AS ORDER_STATUS FROM OT.ORDERS_DATA;
+
+
+/**
+ * WHERE Clause using one Condition
+ */
+SELECT * FROM OT.ORDERS_DATA WHERE ORDER_ID=105;
+
+/**
+ * WHERE Clause using Multiple conditions(AND Condition)
+ */
+
+SELECT * FROM OT.ORDERS_DATA WHERE ORDER_ID=105 AND STATUS='Pending'
+
+
+/*
+ * WHERE Clause using Multiple conditions(OR Condition)
+ */
+
+
+SELECT * FROM OT.ORDERS_DATA WHERE ORDER_ID=105 OR STATUS='Pending'
+
+
+/*
+ * WHERE Clause for numeric comparison 
+ */
+
+
+/*
+ * WHERE Clause with Greater than Clause to check Credit Limit Greater than 1000
+ */
+SELECT * FROM OT.CUSTOMERS_DATA WHERE CRDT_LMT >=1000;
+
+
+/*
+ * WHERE Clause with Smaller than Clause to check Credit Limit Less than 1000
+ */
+SELECT * FROM OT.CUSTOMERS_DATA WHERE CRDT_LMT <=1000;
 
 
