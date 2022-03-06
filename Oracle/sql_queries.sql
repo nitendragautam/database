@@ -112,3 +112,25 @@ SELECT * FROM OT.CUSTOMERS_DATA WHERE CRDT_LMT >=1000;
 SELECT * FROM OT.CUSTOMERS_DATA WHERE CRDT_LMT <=1000;
 
 
+
+/*
+ * Using Distinct for Single Column
+ */
+
+SELECT DISTINCT(STATUS)  FROM OT.ORDERS_DATA OD;
+
+
+
+/*
+ * Using Distinct for Multiple Columns
+ */
+
+SELECT DISTINCT CUS_ID,STATUS   FROM OT.ORDERS_DATA OD;
+
+
+/*
+ * Using  DISTINCT with Aggregate Functions
+ */
+
+SELECT COUNT(DISTINCT(STATUS))   FROM OT.ORDERS_DATA OD;
+
